@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace address_book_csharp.Controllers
 {
-    public class AddressContoller : Controller
+    public class AddressController : Controller
     {
         private readonly AddressRepository _repository = new();
 
