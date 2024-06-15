@@ -1,0 +1,26 @@
+@model address_book_csharp.Models.Address
+
+<h1>Create Address</h1>
+<form asp-action="Create">
+    <div>
+        <label>Name</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label>Street</label>
+        <input asp-for="Street" />
+    </div>
+    <div>
+        <label>City</label>
+        <input asp-for="City" />
+    </div>
+    <div>
+        <label>State</label>
+        <input asp-for="State" />
+    </div>
+    <div>
+        <label>Zip</label>
+        <input asp-for="Zip" />
+    </div>
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,20 @@
+@model address_book_csharp.Models.Address
+
+<h1>Address Details</h1>
+<div>
+    <strong>Name:</strong> @Model.Name
+</div>
+<div>
+    <strong>Street:</strong> @Model.Street
+</div>
+<div>
+    <strong>City:</strong> @Model.City
+</div>
+<div>
+    <strong>State:</strong> @Model.State
+</div>
+<div>
+    <strong>Zip:</strong> @Model.Zip
+</div>
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>

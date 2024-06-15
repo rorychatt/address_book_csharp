@@ -1,0 +1,33 @@
+@model IEnumerable<address_book_csharp.Models.Address>
+
+<h1>Address List</h1>
+<a asp-action="Create">Create New</a>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var address in Model)
+        {
+            <tr>
+                <td>@address.Name</td>
+                <td>@address.Street</td>
+                <td>@address.City</td>
+                <td>@address.State</td>
+                <td>@address.Zip</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@address.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@address.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@address.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
