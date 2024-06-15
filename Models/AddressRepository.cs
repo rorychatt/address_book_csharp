@@ -11,10 +11,12 @@ namespace address_book_csharp.Models
 
         public List<Address> Search(string query)
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             return _addresses
                 .Where(a => a.Name.Contains(query, System.StringComparison.OrdinalIgnoreCase) ||
                             a.Street.Contains(query, System.StringComparison.OrdinalIgnoreCase))
                 .ToList();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         public void Add(Address address)
