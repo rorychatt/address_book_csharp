@@ -9,6 +9,14 @@ namespace address_book_csharp.Models
 
         public Address GetByID(int id) => _addresses.First(a => a.Id == id);
 
+        public List<Address> Search(string query)
+        {
+            return _addresses
+                .Where(a => a.Name.Contains(query, System.StringComparison.OrdinalIgnoreCase) ||
+                            a.Street.Contains(query, System.StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
         public void Add(Address address)
         {
             address.Id = _nextId++;

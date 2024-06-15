@@ -7,9 +7,11 @@ namespace address_book_csharp.Controllers
     {
         private readonly AddressRepository _repository = new();
 
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery)
         {
-            var addresses = _repository.GetAll();
+            var addresses = string.IsNullOrEmpty(searchQuery) ?
+                _repository.GetAll() : _repository.Search(searchQuery);
+            ViewBag.searchQuery = searchQuery;
             return View(addresses);
         }
 

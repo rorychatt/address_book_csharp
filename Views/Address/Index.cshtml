@@ -1,15 +1,27 @@
 @model IEnumerable<address_book_csharp.Models.Address>
 
-<h1>Address List</h1>
-<a asp-action="Create">Create New</a>
-<table>
+@{
+    ViewData["Title"] = "Addresses";
+}
+
+<h2>Addresses</h2>
+
+<form method="get" asp-action="Index">
+    <input type="text" name="searchQuery" value="@ViewBag.SearchQuery" placeholder="Search by name or street" />
+    <button type="submit">Search</button>
+    <a asp-action="Index">Clear</a>
+</form>
+
+<p><a asp-action="Create">Create New Address</a></p>
+
+<table class="table">
     <thead>
         <tr>
             <th>Name</th>
             <th>Street</th>
             <th>City</th>
             <th>State</th>
-            <th>Zip</th>
+            <th>ZipCode</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -23,8 +35,8 @@
                 <td>@address.State</td>
                 <td>@address.Zip</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@address.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@address.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@address.Id">Edit</a> |
                     <a asp-action="Delete" asp-route-id="@address.Id">Delete</a>
                 </td>
             </tr>
