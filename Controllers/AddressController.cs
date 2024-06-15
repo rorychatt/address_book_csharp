@@ -7,7 +7,7 @@ namespace address_book_csharp.Controllers
     {
         private readonly AddressRepository _repository = new();
 
-        private IActionResult Index()
+        public IActionResult Index()
         {
             var addresses = _repository.GetAll();
             return View(addresses);
